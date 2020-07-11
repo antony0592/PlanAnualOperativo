@@ -41,9 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseService.cs" />
-    <Compile Include="DelitoPersonaJuridicaService.cs" />
-    <Compile Include="PersonaJuridicaService.cs" />
-    <Compile Include="DelitoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
