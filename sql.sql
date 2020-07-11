@@ -79,3 +79,31 @@ GO
 ALTER TABLE PAO_Avance
 ADD CHECK (Terminado='1' OR Terminado='0');
 
+/*
+select(
+(
+select count(Terminado)
+from PAO_Avance
+inner join PAO_Actividad
+on PAO_Actividad.IdAvance=PAO_Avance.IdAvance
+inner join PAO_Meta
+on PAO_Meta.IdMeta=PAO_Actividad.IdMeta
+inner join PAO_Objetivo
+on PAO_Objetivo.IdObjetivo=PAO_Meta.IdObjetivo
+inner join PAO_EjeTematico
+on PAO_EjeTematico.IdEjeTematico=PAO_Objetivo.IdTematico
+where PAO_Avance.Terminado='1'
+) -
+(
+select count(IdActividad)
+from PAO_Actividad
+inner join PAO_Meta
+on PAO_Meta.IdMeta=PAO_Actividad.IdMeta
+inner join PAO_Objetivo
+on PAO_Objetivo.IdObjetivo=PAO_Meta.IdObjetivo
+inner join PAO_EjeTematico
+on PAO_EjeTematico.IdEjeTematico=PAO_Objetivo.IdTematico
+))*10
+
+
+*/
