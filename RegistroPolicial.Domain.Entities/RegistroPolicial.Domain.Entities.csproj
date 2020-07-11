@@ -40,30 +40,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Delito.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DelitoPersonaJuridica.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model.cs">
+    <Compile Include="OPA_Model.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>OPA_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="PersonaJuridica.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="PAO_Actividad.cs">
+      <DependentUpon>OPA_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PAO_Avance.cs">
+      <DependentUpon>OPA_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PAO_Coordinacion.cs">
+      <DependentUpon>OPA_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PAO_EjeTematico.cs">
+      <DependentUpon>OPA_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PAO_Meta.cs">
+      <DependentUpon>OPA_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PAO_Objetivo.cs">
+      <DependentUpon>OPA_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.cs</LastGenOutput>
-    </Content>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>OPA_Model.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OPA_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OPA_Model.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
