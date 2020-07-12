@@ -1,0 +1,129 @@
+﻿@model Web.Models.PaoView
+
+@{
+    ViewBag.Title = "Mantenimientos DATOS GENERALES";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <p></p>
+        <div>
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#first" aria-controls="first" role="tab" data-toggle="tab">2. Metas</a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="first">
+                    <h3>Meta a alcanzar</h3>
+                    <div class="form-group">
+                        <label for="narracion" class="control-label col-md-2">Descripción Meta:</label>
+                        <div class="col-md-3">
+                            @Html.TextAreaFor(model => model.PAO_Meta.Indicador, new { cols = 35, @rows = 3 })
+                            @Html.ValidationMessageFor(model => model.PAO_Meta.Indicador, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="oficina" class="control-label col-md-2">Tema Estratégico:</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.PAO_Objetivo.TemaEstretegico, new List<SelectListItem>
+                            {
+                                new SelectListItem{ Text="Retraso Judicial", Value = "Retraso Judicial" },
+                                new SelectListItem{ Text="Comunicacion", Value = "Comunicacion" },
+                                new SelectListItem{ Text="Gestion Recurso Humano", Value = "Gestion Recurso Humano" },
+                             }, "Seleccionar Tema Estratégico", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.PAO_Objetivo.TemaEstretegico, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="perjuicio" class="control-label col-md-2">Fecha Esperada Inicio:</label>
+                        <div class="col-md-3">
+                            @Html.EditorFor(model => model.PAO_Meta.FechaEI, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PAO_Meta.FechaEI, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="perjuicio" class="control-label col-md-2">Fecha Esperada Fin:</label>
+                        <div class="col-md-3">
+                            @Html.EditorFor(model => model.PAO_Meta.FechaEF, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PAO_Meta.FechaEF, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="perjuicio" class="control-label col-md-2">Valor Inicial:</label>
+                        <div class="col-md-3">
+                            @Html.EditorFor(model => model.PAO_Meta.ValorInicial, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PAO_Meta.ValorEsperado, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <h3>Parámetros de Evaluación para los indicadores</h3>
+                    <div class="form-group">
+                        <label for="perjuicio" class="control-label col-md-2">Indicador:</label>
+                        <div class="col-md-3">
+                            @Html.EditorFor(model => model.PAO_Meta.Indicador, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PAO_Meta.Indicador, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="perjuicio" class="control-label col-md-2">Formula:</label>
+                        <div class="col-md-3">
+                            @Html.EditorFor(model => model.PAO_Meta.Formula, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PAO_Meta.Formula, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="perjuicio" class="control-label col-md-2">Cantidad:</label>
+                        <div class="col-md-3">
+                            @Html.EditorFor(model => model.PAO_Meta.Cantidad, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PAO_Meta.Cantidad, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="perjuicio" class="control-label col-md-2">Tipo Control:</label>
+                        <div class="col-md-3">
+                            @Html.EditorFor(model => model.PAO_Meta.TipoControl, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PAO_Meta.TipoControl, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="perjuicio" class="control-label col-md-2">Medida:</label>
+                        <div class="col-md-3">
+                            @Html.EditorFor(model => model.PAO_Meta.Medida, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PAO_Meta.Medida, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="narracion" class="control-label col-md-2">ACTIVIDAD (Palabra clave):</label>
+                        <div class="col-md-3">
+                            @Html.EditorFor(model => model.PAO_Meta.PAO_Actividad, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PAO_Meta.PAO_Actividad, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="narracion" class="control-label col-md-2">Detalle Actividad:</label>
+                        <div class="col-md-3">
+                            @Html.TextAreaFor(model => model.PAO_Meta.PAO_Objetivo, new { cols = 35, @rows = 3 })
+                            @Html.ValidationMessageFor(model => model.PAO_Meta.PAO_Objetivo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="GuardarMeta" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Volver Inicio", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

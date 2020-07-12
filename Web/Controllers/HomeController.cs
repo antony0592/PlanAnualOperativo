@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using RegistroPolicial.Domain.Entities;
+using RegistroPolicial.Application.Main.Interfaces;
 using System.Web.Mvc;
+using Web.Models;
 
 namespace Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly PAO_Objetivo PAO_Objetivo;
+        private readonly PAO_Meta PAO_Meta;
+
         public ActionResult Index()
         {
             return View();
@@ -24,21 +26,25 @@ namespace Web.Controllers
         }
 
 
-        // GET: Pao/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Pao/Create
-        public ActionResult Create()
+        [HttpPost]
+        public ActionResult GuardarObjetivo(PaoView datosvista)
         {
+
+            PaoView delitoView = new PaoView()
+            {
+                
+            };
+
             return View();
         }
 
-        // POST: Pao/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult GuardarObjetivo(FormCollection collection)
         {
             try
             {
@@ -52,13 +58,11 @@ namespace Web.Controllers
             }
         }
 
-        // GET: Pao/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Pao/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -74,13 +78,11 @@ namespace Web.Controllers
             }
         }
 
-        // GET: Pao/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Pao/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
