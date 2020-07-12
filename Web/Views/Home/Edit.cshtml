@@ -1,0 +1,252 @@
+﻿@model Web.Models.DelitoView
+
+@{
+    ViewBag.Title = "Editar Delito";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editar Delito</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Información:</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.delito.id)
+    <div>
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#first" aria-controls="first" role="tab" data-toggle="tab">Información Basica</a></li>
+            <li role="presentation"><a href="#second" aria-controls="second" role="tab" data-toggle="tab">Persona Juridica</a></li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="first">
+                <div class="form-group">
+                    <label for="origen" class="control-label col-md-2">Origen:</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.delito.origen, new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="Denuncias", Value = "Denuncias" },
+                            new SelectListItem{ Text="Fiscalia", Value = "Fiscalia" },
+                            new SelectListItem{ Text="Bandas", Value = "Bandas" },
+                         }, "Seleccionar Origen", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.delito.origen, "", new { @class = "text-danger" })
+                    </div>
+                    <label for="fechaIngreso" class="control-label col-md-2">Fecha Ingreso:</label>
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.delito.fechaIngreso, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                        @Html.ValidationMessageFor(model => model.delito.fechaIngreso, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="numeroUnico" class="control-label col-md-2">Numero Unico:</label>
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.delito.numeroUnico, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.delito.numeroUnico, "", new { @class = "text-danger" })
+                    </div>
+                    <label for="oficina" class="control-label col-md-2">Oficina Encargada:</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.delito.oficina, new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="Ingresos", Value = "Ingresos" },
+                            new SelectListItem{ Text="Fiscalia", Value = "Fiscalia" },
+                            new SelectListItem{ Text="Policia", Value = "Policia" },
+                         }, "Seleccionar Oficina", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.delito.oficina, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="categoria" class="control-label col-md-2">Categoria Delito:</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.delito.categoria, new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="Asaltos", Value = "Asaltos" },
+                            new SelectListItem{ Text="Asesinatos", Value = "Asesinatos" }
+                         }, "Seleccionar Categoria", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.delito.categoria, "", new { @class = "text-danger" })
+                    </div>
+                    <label for="delegacion" class="control-label col-md-2">Delegación:</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.delito.delegacion, new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="Delegación 1", Value = "Delegación 1" },
+                            new SelectListItem{ Text="Delegación 2", Value = "Delegación 2" }
+                         }, "Seleccionar Delegación", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.delito.delegacion, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="subCategoria" class="control-label col-md-2">Sub Categoria Delito:</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.delito.subCategoria, new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="Sub Categoria 1", Value = "Sub Categoria 1" },
+                            new SelectListItem{ Text="Sub Categoria 2", Value = "Sub Categoria 2" }
+                         }, "Seleccionar Sub Categoria", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.delito.subCategoria, "", new { @class = "text-danger" })
+                    </div>
+                    <label for="perjuicio" class="control-label col-md-2">Perjuicio:</label>
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.delito.perjuicio, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.delito.perjuicio, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="modalidad" class="control-label col-md-2">Modalidad:</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.delito.modalidad, new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="Asalto", Value = "Asalto" },
+                            new SelectListItem{ Text="Robo", Value = "Robo" }
+                         }, "Seleccionar Robo", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.delito.modalidad, "", new { @class = "text-danger" })
+                    </div>
+                    <label for="moneda" class="control-label col-md-2">Moneda:</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.delito.moneda, new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="Colones", Value = "Colones" },
+                            new SelectListItem{ Text="Dolares", Value = "Dolares" }
+                         }, "Seleccionar Moneda", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.delito.moneda, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="victima" class="control-label col-md-2">Victima:</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.delito.victima, new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="Juan Perez", Value = "Juan Perez" },
+                            new SelectListItem{ Text="Maria Dolores", Value = "Maria Dolores" }
+                         }, "Seleccionar Victima", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.delito.victima, "", new { @class = "text-danger" })
+                    </div>
+                    <label for="subVictima" class="control-label col-md-2">Sub Victima:</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.delito.subVictima, new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="Juan Perez", Value = "Juan Perez" },
+                            new SelectListItem{ Text="Maria Dolores", Value = "Maria Dolores" }
+                         }, "Seleccionar Victima", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.delito.subVictima, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="tentativa" class="control-label col-md-2">Tentativa:</label>
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.delito.tentativa, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.delito.tentativa, "", new { @class = "text-danger" })
+                    </div>
+                    <label for="observaciones" class="control-label col-md-2">Observaciones:</label>
+                    <div class="col-md-3">
+                        @Html.TextAreaFor(model => model.delito.observaciones, new { cols = 35, @rows = 3 })
+                        @Html.ValidationMessageFor(model => model.delito.observaciones, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="narracion" class="control-label col-md-2">Narración:</label>
+                    <div class="col-md-3">
+                        @Html.TextAreaFor(model => model.delito.narracion, new { cols = 35, @rows = 3 })
+                        @Html.ValidationMessageFor(model => model.delito.narracion, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Crear" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="second">
+                <div class="form-group">
+                    <label for="rol" class="control-label col-md-2">Rol:</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.personaJuridica.rol, new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="Ofendida", Value = "Ofendida" },
+                            new SelectListItem{ Text="Imputada", Value = "Imputada" },
+                            new SelectListItem{ Text="Utilizada", Value = "Utilizada" },
+                         }, "Seleccionar Rol", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.personaJuridica.rol, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="nombre" class="control-label col-md-2">Nombre Entidad:</label>
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.personaJuridica.nombre, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.personaJuridica.nombre, "", new { @class = "text-danger" })
+                    </div>
+                    <label for="cedulaJuridica" class="control-label col-md-2">Cedula Juridica:</label>
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.personaJuridica.cedulaJuridica, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.personaJuridica.cedulaJuridica, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="razon" class="control-label col-md-2">Razon Social:</label>
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.personaJuridica.razon, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.personaJuridica.razon, "", new { @class = "text-danger" })
+                    </div>
+                    <label for="intensidad" class="control-label col-md-2">Intensidad:</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.personaJuridica.intensidad, new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="Ofendida", Value = "Ofendida" },
+                            new SelectListItem{ Text="Imputada", Value = "Imputada" },
+                            new SelectListItem{ Text="Utilizada", Value = "Utilizada" },
+                         }, "Seleccionar Intensidad", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.personaJuridica.intensidad, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="nombreFantasia" class="control-label col-md-2">Nombre Fantasia:</label>
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.personaJuridica.nombreFantasia, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.personaJuridica.nombreFantasia, "", new { @class = "text-danger" })
+                    </div>
+                    <label for="atributo" class="control-label col-md-2">Atributo:</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.personaJuridica.atributo, new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="Ofendida", Value = "Ofendida" },
+                            new SelectListItem{ Text="Imputada", Value = "Imputada" },
+                            new SelectListItem{ Text="Utilizada", Value = "Utilizada" },
+                         }, "Seleccionar Atributo", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.personaJuridica.atributo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="filial" class="control-label col-md-2">Filial:</label>
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.personaJuridica.filial, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.personaJuridica.filial, "", new { @class = "text-danger" })
+                    </div>
+                    <label for="allanada" class="control-label col-md-2">Allanada:</label>
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.personaJuridica.allanada, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.personaJuridica.allanada, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="observaciones" class="control-label col-md-2">Observaciones:</label>
+                    <div class="col-md-3">
+                        @Html.TextAreaFor(model => model.delito.observaciones, new { cols = 35, @rows = 3 })
+                        @Html.ValidationMessageFor(model => model.personaJuridica.observaciones, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Volver a la lista", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

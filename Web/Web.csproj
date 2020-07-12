@@ -140,10 +140,10 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PaoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\PaoView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -179,14 +179,14 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Objetivos.cshtml" />
+    <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\Pao\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -209,6 +209,10 @@
     <ProjectReference Include="..\RegistroPolicial.Domain.Core\RegistroPolicial.Domain.Core.csproj">
       <Project>{55DE968D-74B1-4B8F-BDCE-3D5069C790C5}</Project>
       <Name>RegistroPolicial.Domain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RegistroPolicial.Domain.Entities\RegistroPolicial.Domain.Entities.csproj">
+      <Project>{FB9A6DAF-19F2-4358-889F-D234C0BEF485}</Project>
+      <Name>RegistroPolicial.Domain.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\RegistroPolicial.Domain\RegistroPolicial.Domain.csproj">
       <Project>{755C138D-DF3D-432D-BD1D-E13B1E74CF56}</Project>
