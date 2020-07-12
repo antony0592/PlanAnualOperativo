@@ -1,0 +1,41 @@
+﻿@model antony.Domain.Entities.Delito
+
+@{
+    ViewBag.Title = "Eliminar delito";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar delito</h2>
+
+<h3>¿De verdad lo quieres eliminar?</h3>
+<div>
+    <h4>Información:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Identificador:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+
+        <dt>
+            Numero Unico:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numeroUnico)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Volver a la lista", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,76 @@
+﻿@model Web.Models.PaoView
+
+@{
+    ViewBag.Title = "Mantenimientos DATOS GENERALES";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <p></p>
+    <div>        
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#first" aria-controls="first" role="tab" data-toggle="tab">1. Datos Generales Objetivos</a></li>
+        </ul>        
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="first">
+                <div class="form-group">
+                    <label for="origen" class="control-label col-md-2">Oficina:</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.PAO_Objetivo.Oficina, new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="Denuncias", Value = "Denuncias" },
+                            new SelectListItem{ Text="Fiscalia", Value = "Fiscalia" },
+                            new SelectListItem{ Text="Bandas", Value = "Bandas" },
+                         }, "Selecciona Oficina", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PAO_Objetivo.Oficina, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="oficina" class="control-label col-md-2">Tema Estratégico:</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.PAO_Objetivo.TemaEstretegico, new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="Retraso Judicial", Value = "Retraso Judicial" },
+                            new SelectListItem{ Text="Comunicacion", Value = "Comunicacion" },
+                            new SelectListItem{ Text="Gestion Recurso Humano", Value = "Gestion Recurso Humano" },
+                         }, "Seleccionar Tema Estratégico", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PAO_Objetivo.TemaEstretegico, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="perjuicio" class="control-label col-md-2">Año:</label>
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.PAO_Objetivo.Anno, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PAO_Objetivo.Anno, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="narracion" class="control-label col-md-2">Objetivo:</label>
+                    <div class="col-md-3">
+                        @Html.TextAreaFor(model => model.PAO_Objetivo.Objetivo, new { cols = 35, @rows = 3 })
+                        @Html.ValidationMessageFor(model => model.PAO_Objetivo.Objetivo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="GuardarObjetivo" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+</div>
+}
+
+<div>
+    @Html.ActionLink("Volver Inicio", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
