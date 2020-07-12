@@ -4,7 +4,7 @@ using RegistroPolicial.Domain.Interfaces.Repositories;
 
 namespace RegistroPolicial.Domain.Core
 {
-    public class CoordinacionService : BaseService<PAO_Coordinacion>, ICoodinacionService
+    public class CoordinacionService : BaseService<PAO_Coordinacion>, ICoordinacionService
     {
         private readonly ICoordinacionRepository repository;
 

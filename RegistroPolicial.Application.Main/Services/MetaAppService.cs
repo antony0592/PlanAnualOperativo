@@ -6,7 +6,6 @@ namespace RegistroPolicial.Application.Main.Services
 {
         public class MetaAppService : BaseAppService<PAO_Meta>, IMetaAppService
     {
-        //Declaración de variables globales
         private readonly IMetaService service;
 
         public MetaAppService(IMetaService service) : base(service)

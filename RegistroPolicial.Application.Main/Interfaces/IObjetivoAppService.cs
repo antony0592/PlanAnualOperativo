@@ -1,9 +1,8 @@
 ﻿using RegistroPolicial.Domain.Entities;
-using RegistroPolicial.Domain.Interfaces.Repositories;
 
 namespace RegistroPolicial.Application.Main.Interfaces
 {
-    public interface IObjetivoAppService : IBaseRepository<PAO_Objetivo>
+    public interface IObjetivoAppService : IBaseAppService<PAO_Objetivo>
     {
     }
 }

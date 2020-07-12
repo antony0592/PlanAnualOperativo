@@ -80,12 +80,12 @@ namespace Web.App_Start
             //Servicios de la capa de aplicación con servicios de dominio base
             kernel.Bind(typeof(IBaseService<>)).To(typeof(BaseService<>));
             //Servicios de la capa de aplicación con servicios de dominio Entities
-            kernel.Bind<IEjeTematicoService>().To<EjeTematicoAppService>();
-            kernel.Bind<IObjetivoService>().To<ObjetivoAppService>();
-            kernel.Bind<IMetaService>().To<MetaAppService>();
-            kernel.Bind<IAvanceService>().To<AvanceAppService>();
-            kernel.Bind<IActividadService>().To<ActividadAppService>();
-            kernel.Bind<ICoordinacionService>().To<CoordinacionAppService>();
+            kernel.Bind<IEjeTematicoService>().To<EjeTematicoService>();
+            kernel.Bind<IObjetivoService>().To<ObjetivoService>();
+            kernel.Bind<IMetaService>().To<MetaService>();
+            kernel.Bind<IAvanceService>().To<AvanceService>();
+            kernel.Bind<IActividadService>().To<ActividadService>();
+            kernel.Bind<ICoordinacionService>().To<CoordinacionService>();
 
 
             //Repositorio del dominio a los de infraestructura Base
@@ -97,6 +97,6 @@ namespace Web.App_Start
             kernel.Bind<IAvanceRepository>().To<AvanceRepository>();
             kernel.Bind<IActividadRepository>().To<ActividadRepository>();
             kernel.Bind<ICoordinacionRepository>().To<CoordinacionRepository>();
-        }
+        }        
     }
 }
