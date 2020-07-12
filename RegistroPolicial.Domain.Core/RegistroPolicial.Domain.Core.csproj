@@ -40,7 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActividadService.cs" />
+    <Compile Include="AvanceService.cs" />
     <Compile Include="BaseService.cs" />
+    <Compile Include="CoordinacionService.cs" />
+    <Compile Include="EjeTamaticoService.cs" />
+    <Compile Include="MetaService.cs" />
+    <Compile Include="ObjetivoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

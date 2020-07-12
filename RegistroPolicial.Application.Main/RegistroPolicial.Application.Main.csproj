@@ -40,15 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IActividadAppService.cs" />
+    <Compile Include="Interfaces\IAvanceAppService.cs" />
     <Compile Include="Interfaces\IBaseAppService.cs" />
-    <Compile Include="Interfaces\IDelitoPersonaJuridicaAppService.cs" />
-    <Compile Include="Interfaces\IPersonaJuridicaAppService.cs" />
-    <Compile Include="Interfaces\IDelitoAppService.cs" />
+    <Compile Include="Interfaces\ICoordinacionAppService.cs" />
+    <Compile Include="Interfaces\IEjeTematicoAppService.cs" />
+    <Compile Include="Interfaces\IMetaAppService.cs" />
+    <Compile Include="Interfaces\IObjetivoAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ActividadAppService.cs" />
+    <Compile Include="Services\AvanceAppService.cs" />
     <Compile Include="Services\BaseAppService.cs" />
-    <Compile Include="Services\DelitoPersonaJuridicaAppService.cs" />
-    <Compile Include="Services\PersonaJuridicaAppService.cs" />
-    <Compile Include="Services\DelitoAppService.cs" />
+    <Compile Include="Services\CoodinacionAppService.cs" />
+    <Compile Include="Services\EjeTematicoAppService.cs" />
+    <Compile Include="Services\MetaAppService.cs" />
+    <Compile Include="Services\ObjetivoAppService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RegistroPolicial.Domain.Entities\RegistroPolicial.Domain.Entities.csproj">

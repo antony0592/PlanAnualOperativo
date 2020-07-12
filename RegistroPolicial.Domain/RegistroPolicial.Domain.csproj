@@ -40,11 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\Repositories\IActividadRepository.cs.cs" />
+    <Compile Include="Interfaces\Repositories\IAvanceRepository.cs.cs" />
     <Compile Include="Interfaces\Repositories\IBaseRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ICoordinacionRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IEjeTematicoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IMetaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IObjetivoRepository.cs" />
+    <Compile Include="Interfaces\Services\IActividadService.cs" />
+    <Compile Include="Interfaces\Services\IAvanceService.cs" />
     <Compile Include="Interfaces\Services\IBaseService.cs" />
-    <Compile Include="Interfaces\Services\IDelitoPersonaJuridicaService.cs" />
-    <Compile Include="Interfaces\Services\IPersonaJuridicaService.cs" />
-    <Compile Include="Interfaces\Services\IDelitoService.cs" />
+    <Compile Include="Interfaces\Services\ICoordinacionService.cs" />
+    <Compile Include="Interfaces\Services\IEjeTematicoService.cs" />
+    <Compile Include="Interfaces\Services\IMetaService.cs" />
+    <Compile Include="Interfaces\Services\IObjetivoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
