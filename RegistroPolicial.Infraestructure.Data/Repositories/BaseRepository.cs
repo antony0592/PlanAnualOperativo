@@ -13,7 +13,7 @@ namespace RegistroPolicial.Infraestructure.Data.Repositories
             TEntity created = null;
             try
             {
-                using (var context = new RegistroPolicialEntities())
+                using (var context = new PlanAnualOperativoAntony2020Entities())
                 {
                     created = context.Set<TEntity>().Add(entity);
                     context.SaveChanges();
@@ -31,7 +31,7 @@ namespace RegistroPolicial.Infraestructure.Data.Repositories
         {
             try
             {
-                using (var context = new RegistroPolicialEntities())
+                using (var context = new PlanAnualOperativoAntony2020Entities())
                 {
                     return context.Set<TEntity>().ToList();
                 }
@@ -46,7 +46,7 @@ namespace RegistroPolicial.Infraestructure.Data.Repositories
         {
             try
             {
-                using (var context = new RegistroPolicialEntities())
+                using (var context = new PlanAnualOperativoAntony2020Entities())
                 {
                     return context.Set<TEntity>().Find(id);
                 }
@@ -61,7 +61,7 @@ namespace RegistroPolicial.Infraestructure.Data.Repositories
         {            
             try
             {
-                using (var context = new RegistroPolicialEntities())
+                using (var context = new PlanAnualOperativoAntony2020Entities())
                 {
                     var entity = context.Set<TEntity>().Find(id);
                     context.Set<TEntity>().Remove(entity);
@@ -83,7 +83,7 @@ namespace RegistroPolicial.Infraestructure.Data.Repositories
         {
             try
             {
-                using (var context = new RegistroPolicialEntities())
+                using (var context = new PlanAnualOperativoAntony2020Entities())
                 {
                     context.Entry(entity).State = EntityState.Modified;
                     context.SaveChanges();

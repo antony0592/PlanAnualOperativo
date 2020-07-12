@@ -67,23 +67,36 @@ namespace Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            //Servicios de la capa de aplicación
+            //Servicios de la capa de aplicación Base
             kernel.Bind(typeof(IBaseAppService<>)).To(typeof(BaseAppService<>));
-            kernel.Bind<IDelitoAppService>().To<DelitoAppService>();
-            kernel.Bind<IPersonaJuridicaAppService>().To<PersonaJuridicaAppService>();
-            kernel.Bind<IDelitoPersonaJuridicaAppService>().To<DelitoPersonaJuridicaAppService>();
+            //Servicios de la capa de aplicación Entities
+            kernel.Bind<IEjeTematicoAppService>().To<EjeTematicoAppService>();
+            kernel.Bind<IObjetivoAppService>().To<ObjetivoAppService>();
+            kernel.Bind<IMetaAppService>().To<MetaAppService>();
+            kernel.Bind<IAvanceAppService>().To<AvanceAppService>();
+            kernel.Bind<IActividadAppService>().To<ActividadAppService>();
+            kernel.Bind<ICoordinacionAppService>().To<CoordinacionAppService>();
 
-            //Servicios de la capa de aplicación con servicios de dominio
+            //Servicios de la capa de aplicación con servicios de dominio base
             kernel.Bind(typeof(IBaseService<>)).To(typeof(BaseService<>));
-            kernel.Bind<IDelitoService>().To<DelitoService>();
-            kernel.Bind<IPersonaJuridicaService>().To<PersonaJuridicaService>();
-            kernel.Bind<IDelitoPersonaJuridicaService>().To<DelitoPersonaJuridicaService>();
+            //Servicios de la capa de aplicación con servicios de dominio Entities
+            kernel.Bind<IEjeTematicoService>().To<EjeTematicoService>();
+            kernel.Bind<IObjetivoService>().To<ObjetivoService>();
+            kernel.Bind<IMetaService>().To<MetaService>();
+            kernel.Bind<IAvanceService>().To<AvanceService>();
+            kernel.Bind<IActividadService>().To<ActividadService>();
+            kernel.Bind<ICoordinacionService>().To<CoordinacionService>();
 
-            //Repositorio del dominio a los de infraestructura
+
+            //Repositorio del dominio a los de infraestructura Base
             kernel.Bind(typeof(IBaseRepository<>)).To(typeof(BaseRepository<>));
-            kernel.Bind<IDelitoRepository>().To<DelitoRepository>();
-            kernel.Bind<IPersonaJuridicaRepository>().To<PersonaJuridicaRepository>();
-            kernel.Bind<IDelitoPersonaJuridicaRepository>().To<DelitoPersonaJuridicaRepository>();
-        }
+            //Repositorio del dominio a los de infraestructura Base
+            kernel.Bind<IEjeTematicoRepository>().To<EjeTematicoRepository>();
+            kernel.Bind<IObjetivoRepository>().To<ObjetivoRepository>();
+            kernel.Bind<IMetaRepository>().To<MetaRepository>();
+            kernel.Bind<IAvanceRepository>().To<AvanceRepository>();
+            kernel.Bind<IActividadRepository>().To<ActividadRepository>();
+            kernel.Bind<ICoordinacionRepository>().To<CoordinacionRepository>();
+        }        
     }
 }

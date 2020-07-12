@@ -60,7 +60,13 @@
       <DependentUpon>OPA_Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ActividadRepository.cs" />
+    <Compile Include="Repositories\AvanceRepository.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\CoordinacionRepository.cs" />
+    <Compile Include="Repositories\EjeTematicoRepository.cs" />
+    <Compile Include="Repositories\MetaRepository.cs" />
+    <Compile Include="Repositories\ObjetivoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
